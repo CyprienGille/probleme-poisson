@@ -10,7 +10,7 @@ Ce projet implémente la résolution de **l'équation de la chaleur stationnaire
 - des murs isolants ([conditions aux limites de Neumann](https://fr.wikipedia.org/wiki/Condition_aux_limites_de_Neumann))
 - un radiateur (terme source localisé)
 
-Pour résoudre l'équation de Poisson, ce code implémente les [**schémas d'Euler explicites et implicites.**](https://fr.wikipedia.org/wiki/M%C3%A9thode_d%27Euler)
+Pour résoudre l'équation de Poisson, ce code implémente les [**schémas d'Euler explicite et implicite.**](https://fr.wikipedia.org/wiki/M%C3%A9thode_d%27Euler)
 
 ## Fichiers
 
@@ -30,6 +30,6 @@ Pour résoudre l'équation de Poisson, ce code implémente les [**schémas d'Eul
 
 Note: Bien que le but soit de suivre l'evolution de la température avec le temps, j'ai également implémenté les solutions directes (i.e. stationnaires), ce qui permet de contrôler la convergence avec un critère de proximité avec la solution exacte.
 
-### Note sur `poisson_instat_im_factorise.m`
+#### Note sur `poisson_instat_im_factorise.m`
 
-Le schéma d'Euler implicite est plus lent (que l'explicite) car plus gourmand en calcul (il nécessite la résolution d'un système linéaire à chaque pas de temps). Il est possible de l'optimiser à l'aide d'une factorisation LU - c'est ce j'ai implémenté dans `poisson_instat_im_factorise.m`.
+Le schéma d'Euler implicite est plus lent (que l'explicite) car plus gourmand en calcul (il nécessite la résolution d'un système linéaire à chaque pas de temps). Il est possible de l'optimiser à l'aide d'une factorisation LU - c'est ce j'ai implémenté dans `poisson_instat_im_factorise.m`. Cela donne des performances équivalentes au schéma explicite, et ce même pour un grand nombre de points de discrétisation.
